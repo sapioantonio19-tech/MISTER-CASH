@@ -8,15 +8,425 @@
 
 <title>MISTER CA$H | Community Privata</title>
 
-<meta name="description"
-content="Entra nella community privata MISTER CA$H su Telegram.">
+<meta name="description" content="Community privata Telegram MISTER CA$H">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+
+--black:#050505;
+--black2:#0d0d0d;
+
+--green:#33FF99;
+--green2:#18d879;
+
+--purple:#7b61ff;
+
+--white:#ffffff;
+--text:#cfcfcf;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:var(--black);
+
+font-family:'Poppins',sans-serif;
+
+color:white;
+
+overflow-x:hidden;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+
+radial-gradient(circle at top,
+rgba(51,255,153,.12),
+transparent 45%),
+
+radial-gradient(circle at bottom,
+rgba(123,97,255,.08),
+transparent 35%);
+
+z-index:-3;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background-image:
+
+linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+
+linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+
+background-size:42px 42px;
+
+opacity:.45;
+
+z-index:-2;
+
+}
+
+/* NAV */
+
+nav{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+padding:22px 8%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+backdrop-filter:blur(16px);
+
+background:rgba(0,0,0,.30);
+
+z-index:999;
+
+}
+
+.brand{
+
+font-family:'Orbitron',sans-serif;
+
+font-size:24px;
+
+letter-spacing:2px;
+
+font-weight:700;
+
+}
+
+.topButton{
+
+padding:15px 28px;
+
+background:var(--green);
+
+color:black;
+
+text-decoration:none;
+
+font-weight:700;
+
+border-radius:999px;
+
+transition:.35s;
+
+}
+
+.topButton:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 0 40px rgba(51,255,153,.55);
+
+}
+
+/* HERO */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:140px 25px;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:850px;
+
+height:850px;
+
+background:url("logo.png") center/contain no-repeat;
+
+opacity:.03;
+
+filter:blur(3px);
+
+}
+
+.container{
+
+max-width:900px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.badge{
+
+display:inline-block;
+
+padding:12px 24px;
+
+border-radius:999px;
+
+border:1px solid rgba(255,255,255,.08);
+
+background:rgba(255,255,255,.04);
+
+color:var(--green);
+
+margin-bottom:35px;
+
+}
+
+.logo{
+
+width:230px;
+
+margin-bottom:35px;
+
+filter:drop-shadow(0 0 40px rgba(51,255,153,.45));
+
+transition:.35s;
+
+}
+
+.logo:hover{
+
+transform:translateY(-8px) scale(1.03);
+
+filter:drop-shadow(0 0 60px rgba(51,255,153,.70));
+
+}
+
+h1{
+
+font-family:'Orbitron',sans-serif;
+
+font-size:72px;
+
+margin-bottom:15px;
+
+}
+
+.subtitle{
+
+font-size:30px;
+
+color:var(--green);
+
+margin-bottom:30px;
+
+}
+
+.description{
+
+font-size:20px;
+
+line-height:1.9;
+
+color:var(--text);
+
+margin-bottom:45px;
+
+}
+
+.cta{
+
+display:inline-block;
+
+padding:22px 46px;
+
+background:linear-gradient(90deg,var(--green),var(--green2));
+
+border-radius:999px;
+
+color:black;
+
+font-weight:700;
+
+text-decoration:none;
+
+box-shadow:0 0 35px rgba(51,255,153,.35);
+
+transition:.35s;
+
+}
+
+.cta:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 0 60px rgba(51,255,153,.60);
+
+}
+
+section{
+
+padding:120px 8%;
+
+}
+
+.title{
+
+font-family:'Orbitron',sans-serif;
+
+font-size:46px;
+
+text-align:center;
+
+margin-bottom:70px;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:35px;
+
+}
+
+.card{
+
+padding:40px;
+
+border-radius:24px;
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+border-color:rgba(51,255,153,.35);
+
+box-shadow:0 0 35px rgba(51,255,153,.20);
+
+}
+
+.card h3{
+
+font-family:'Orbitron',sans-serif;
+
+margin-bottom:18px;
+
+}
+
+.card p{
+
+line-height:1.8;
+
+color:var(--text);
+
+}
+
+@media(max-width:900px){
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+.logo{
+
+width:180px;
+
+}
+
+h1{
+
+font-size:48px;
+
+}
+
+.subtitle{
+
+font-size:24px;
+
+}
+
+.description{
+
+font-size:18px;
+
+}
+
+.topButton{
+
+display:none;
+
+}
+
+}
+
+</style>
 
 </head>
 
@@ -24,14 +434,14 @@ content="Entra nella community privata MISTER CA$H su Telegram.">
 
 <nav>
 
-<div class="logo-nav">
+<div class="brand">
 
 MISTER CA$H
 
 </div>
 
 <a
-class="telegram-top"
+class="topButton"
 href="https://telegram.me/+VJsTzGFcTaYxYjM8"
 target="_blank">
 
@@ -43,7 +453,7 @@ ENTRA
 
 <header class="hero">
 
-<div class="hero-content">
+<div class="container">
 
 <div class="badge">
 
@@ -52,9 +462,9 @@ COMMUNITY PRIVATA TELEGRAM
 </div>
 
 <img
-src="assets/logo.png"
-alt="MISTER CA$H"
-class="logo">
+src="./logo.png"
+class="logo"
+alt="MISTER CA$H">
 
 <h1>
 
@@ -62,15 +472,17 @@ MISTER CA$H
 
 </h1>
 
-<h2>
+<div class="subtitle">
 
-Community privata dedicata agli appassionati del settore.
+Non seguire la fortuna.<br>
+Segui il metodo.
 
-</h2>
+</div>
 
-<p>
+<p class="description">
 
-Confrontati con altri membri, scopri contenuti condivisi dalla community e accedi agli aggiornamenti direttamente su Telegram.
+Entra nella community privata Telegram.
+Confrontati con altri membri, scopri contenuti esclusivi condivisi dalla community e accedi agli aggiornamenti direttamente dal gruppo.
 
 </p>
 
@@ -85,13 +497,15 @@ target="_blank">
 
 </div>
 
-</header>
+</header> <!-- =========================
+     PERCHÉ MISTER CA$H
+========================== -->
 
-<section class="features">
+<section>
 
-<h2>
+<h2 class="title">
 
-Perché entrare?
+Perché entrare nella Community?
 
 </h2>
 
@@ -101,13 +515,13 @@ Perché entrare?
 
 <h3>
 
-Community privata
+🔒 Community Privata
 
 </h3>
 
 <p>
 
-Uno spazio riservato dove confrontarsi con altri membri della community.
+Accedi ad uno spazio riservato dove confrontarti con altri membri in un ambiente dedicato.
 
 </p>
 
@@ -117,13 +531,13 @@ Uno spazio riservato dove confrontarsi con altri membri della community.
 
 <h3>
 
-Contenuti condivisi
+📈 Contenuti Esclusivi
 
 </h3>
 
 <p>
 
-Aggiornamenti, discussioni e materiali pubblicati direttamente all'interno del gruppo.
+Aggiornamenti, approfondimenti e materiali condivisi direttamente all'interno della community.
 
 </p>
 
@@ -133,13 +547,13 @@ Aggiornamenti, discussioni e materiali pubblicati direttamente all'interno del g
 
 <h3>
 
-Accesso immediato
+⚡ Accesso Immediato
 
 </h3>
 
 <p>
 
-Un clic sul pulsante e accederai direttamente al canale Telegram.
+Con un solo clic entrerai direttamente nella community Telegram.
 
 </p>
 
@@ -149,15 +563,26 @@ Un clic sul pulsante e accederai direttamente al canale Telegram.
 
 </section>
 
-<section class="quote">
+<!-- =========================
+     FRASE CENTRALE
+========================== -->
 
-<h2>
+<section
+style="text-align:center;padding:150px 8%;">
+
+<h2
+style="font-size:56px;
+font-family:Orbitron,sans-serif;">
 
 NON SEGUIRE LA FORTUNA
 
 </h2>
 
-<h3>
+<h3
+style="font-size:42px;
+color:#33FF99;
+margin-top:20px;
+font-family:Orbitron,sans-serif;">
 
 SEGUI IL METODO
 
@@ -165,65 +590,63 @@ SEGUI IL METODO
 
 </section>
 
-<section class="steps">
+<!-- =========================
+     COME FUNZIONA
+========================== -->
 
-<h2>
+<section>
+
+<h2 class="title">
 
 Come funziona
 
 </h2>
 
-<div class="step-list">
+<div class="cards">
 
-<div>
-
-<span>1</span>
+<div class="card">
 
 <h3>
 
-Apri Telegram
+1️⃣ Premi il pulsante
 
 </h3>
 
 <p>
 
-Premi il pulsante verde presente nella pagina.
+Clicca sul pulsante verde presente nella pagina.
 
 </p>
 
 </div>
 
-<div>
-
-<span>2</span>
+<div class="card">
 
 <h3>
 
-Entra nel gruppo
+2️⃣ Apri Telegram
 
 </h3>
 
 <p>
 
-Accedi alla community privata direttamente dal link.
+Verrai reindirizzato direttamente alla community privata.
 
 </p>
 
 </div>
 
-<div>
-
-<span>3</span>
+<div class="card">
 
 <h3>
 
-Partecipa
+3️⃣ Entra
 
 </h3>
 
 <p>
 
-Segui le discussioni e partecipa alla community.
+Leggi il regolamento, entra nella community e partecipa alle discussioni.
 
 </p>
 
@@ -233,42 +656,66 @@ Segui le discussioni e partecipa alla community.
 
 </section>
 
-<section class="cta-final">
+<!-- =========================
+     CTA FINALE
+========================== -->
+
+<section
+style="text-align:center;
+padding:140px 8%;">
 
 <img
-src="assets/logo.png"
-alt="Logo">
+src="logo.png"
+style="width:170px;
+margin-bottom:35px;
+filter:drop-shadow(0 0 35px rgba(51,255,153,.45));">
 
-<h2>
+<h2
+style="margin-bottom:40px;">
 
-L'accesso è a un clic.
+L'accesso è ad un clic.
 
 </h2>
 
 <a
+
 class="cta"
+
 href="https://telegram.me/+VJsTzGFcTaYxYjM8"
+
 target="_blank">
 
-ENTRA ORA
+🚀 ENTRA ORA
 
 </a>
 
 </section>
 
-<footer>
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer
+style="padding:60px 8%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);">
 
 <img
-src="assets/logo.png"
-alt="Logo">
+src="logo.png"
+style="width:90px;">
 
-<p>
+<p
+style="margin-top:20px;
+font-weight:600;">
 
 MISTER CA$H
 
 </p>
 
-<small>
+<small
+style="display:block;
+margin-top:15px;
+color:#888;">
 
 Community privata Telegram.
 
@@ -276,7 +723,25 @@ Community privata Telegram.
 
 </footer>
 
-<script src="script.js"></script>
+<script>
+
+document.querySelectorAll(".cta").forEach(button=>{
+
+button.addEventListener("mouseenter",()=>{
+
+button.style.transform="translateY(-4px) scale(1.03)";
+
+});
+
+button.addEventListener("mouseleave",()=>{
+
+button.style.transform="translateY(0)";
+
+});
+
+});
+
+</script>
 
 </body>
 
